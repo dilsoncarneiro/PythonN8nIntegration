@@ -62,9 +62,9 @@ from datetime import datetime
 import pandas as pd
 
 # Import your existing Selenium helpers
-from TestBase.Tests.Test_Base import TestBase
-from PageObjectModel.JupiterToys.HomePage import HomePage
-from PageObjectModel.JupiterToys.ShopPage import ShopPage
+from Test_Base import TestBase
+from HomePage import HomePage
+from ShopPage import ShopPage
 
 
 app = Flask(__name__)
@@ -102,4 +102,5 @@ def extract_products():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
+
 

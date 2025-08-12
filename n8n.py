@@ -10,7 +10,7 @@ from ShopPage import ShopPage
 
 n8n = Flask(__name__)
 
-@N8nIntegration.route("/extract-products", methods=["GET"])
+@n8n.route("/extract-products", methods=["GET"])
 def extract_products():
     driver = None
     try:
@@ -43,6 +43,7 @@ def extract_products():
 
 if __name__ == "__main__":
     n8n.run(host="0.0.0.0", port=8080)
+
 
 
 

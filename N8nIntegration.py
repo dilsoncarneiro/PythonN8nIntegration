@@ -67,9 +67,9 @@ from HomePage import HomePage
 from ShopPage import ShopPage
 
 
-app = Flask(__name__)
+N8nIntegration = Flask(__name__)
 
-@app.route("/extract-products", methods=["GET"])
+@N8nIntegration.route("/extract-products", methods=["GET"])
 def extract_products():
     driver = None
     try:
@@ -101,6 +101,7 @@ def extract_products():
             TestBase.teardown(driver)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    N8nIntegration.run(host="0.0.0.0", port=8080)
+
 
 

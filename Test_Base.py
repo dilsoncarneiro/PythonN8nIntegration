@@ -48,40 +48,6 @@ class TestBase:
         self.wait.until(EC.element_to_be_clickable(by_locator)).click()
 
     @staticmethod
-    def can_interact_with_element(driver, selector_type, selector):
-        """Check if an element is interactable."""
-        # Wait for any overlay to disappear
-        try:
-            axe_overlay = 'div.axe-page-overlay-active'
-            WebDriverWait(driver, 15).until_not(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, axe_overlay))
-            )
-        except TimeoutException:
-            pass
-
-        element_visible = False
-        for _ in range(4):
-            try:
-                if selector_type == 'XPATH':
-                    WebDriverWait(driver, 10).until(
-                        EC.visibility_of_element_located((By.XPATH, selector))
-                    )
-                elif selector_type == 'CSS':
-                    WebDriverWait(driver, 10).until(
-                        EC.visibility_of_element_located((By.CSS_SELECTOR, selector))
-                    )
-                elif selector_type == 'ID':
-                    WebDriverWait(driver, 10).until(
-                        EC.visibility_of_element_located((By.ID, selector))
-                    )
-                element_visible = True
-                break
-            except:
-                continue
-
-        return element_visible
-
-    @staticmethod
     def teardown(driver):
         """Close and quit the WebDriver."""
         try:
@@ -204,6 +170,7 @@ class TestBase:
 #         driver.close()
 
 #         driver.quit()
+
 
 
 
